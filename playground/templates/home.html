@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home – Storefront{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Welcome to Storefront</h1>
+  <p class="lead">A simple Django project with a clean UI. Use the links below to explore.</p>
+  <div class="hero-actions">
+    <a href="{% url 'playground_hello' %}" class="btn">Say Hello</a>
+    <a href="{% url 'about' %}" class="btn btn-outline">About</a>
+  </div>
+</section>
+
+<h2>Features</h2>
+<div class="card-grid">
+  {% for item in featured %}
+  <div class="card-item">
+    <h3 style="margin-bottom: 0.25rem; font-size: 1.1rem;">{{ item.name }}</h3>
+    <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">{{ item.description }}</p>
+    {% if item.url_name %}
+    <a href="{% url item.url_name %}" class="btn btn-outline" style="margin-top: 0.75rem;">Open</a>
+    {% elif item.path %}
+    <a href="{{ item.path }}" class="btn btn-outline" style="margin-top: 0.75rem;">Open</a>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,7 +1,19 @@
-{% if name %}
-<h1>Hello {{name}}</h1>
+{% extends "base.html" %}
 
-{% else %}
-<h1>Hello world</h1>
+{% block title %}Hello – Storefront{% endblock %}
 
-{% endif %}
+{% block content %}
+<section class="hero">
+  {% if name %}
+  <h1>Hello, {{ name }}.</h1>
+  <p class="lead">This is the playground view with your name in context.</p>
+  {% else %}
+  <h1>Hello, world.</h1>
+  <p class="lead">No name in context – edit the view to pass one.</p>
+  {% endif %}
+  <div class="hero-actions">
+    <a href="{% url 'home' %}" class="btn btn-outline">Home</a>
+    <a href="{% url 'about' %}" class="btn">About</a>
+  </div>
+</section>
+{% endblock %}

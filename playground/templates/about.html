@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}About – Storefront{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>About this project</h1>
+  <p class="lead">A minimal Django storefront-style app with shared layout and static styling.</p>
+</section>
+
+<div class="card">
+  <h2>What’s included</h2>
+  <ul style="color: var(--muted); margin: 0; padding-left: 1.25rem;">
+    <li><strong style="color: var(--text);">Home</strong> – Landing page with feature links</li>
+    <li><strong style="color: var(--text);">Hello</strong> – Greeting page (playground view)</li>
+    <li><strong style="color: var(--text);">About</strong> – This page</li>
+    <li><strong style="color: var(--text);">Admin</strong> – Django admin at <code>/admin/</code></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Tech</h2>
+  <p style="margin: 0; color: var(--muted);">Django 5.2, SQLite, Pipenv. Static CSS with a dark theme and simple layout.</p>
+</div>
+
+<p><a href="{% url 'home' %}" class="btn">Back to Home</a></p>
+{% endblock %}
